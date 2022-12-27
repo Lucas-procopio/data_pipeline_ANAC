@@ -1,1 +1,1 @@
-# google-cloud-plaform
+# google-cloud-platform
