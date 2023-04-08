@@ -2,11 +2,6 @@ import os
 import apache_beam as beam
 from apache_beam.options.pipeline_options import PipelineOptions
 
-'''
-Um requisito do Apache Beam para armazenamento de dados em tabelas no Bigquery é que os dados estejam em
-dicionários
-'''
-
 serviceAccount = r'WAY_TO_GCP_CREDENTIALS'
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = serviceAccount
 
