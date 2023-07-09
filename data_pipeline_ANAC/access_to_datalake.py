@@ -41,7 +41,6 @@ class storageAccessObj():
         
 
 if __name__ == '__main__':
-    
     objectA = storageAccessObj('datalake_f')
     objectA.downloadListFiles('anac', 'tarifas_transporte_aereo', '.csv')
     
