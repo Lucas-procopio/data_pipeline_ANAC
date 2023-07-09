@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+# Credentials
+gcp_credentials.json
+.json
+credentials\gcp_credentials.json
