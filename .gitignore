@@ -132,4 +132,5 @@ dmypy.json
 # Credentials
 gcp_credentials.json
 .json
-credentials\gcp_credentials.json
+.\credentials\gcp_credentials.json
+.\credentials
