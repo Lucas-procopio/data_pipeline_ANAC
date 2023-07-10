@@ -26,7 +26,7 @@ class storageAccessObj():
                 and filename.lower() in blob.name and (formatFile.upper() in blob.name or formatFile.lower() in blob.name)
                 and yearPath.lower() in blob.name]
 
-    def downloadFileStorage(self, storage_path, local_path):
+    def __downloadFileStorage(self, storage_path, local_path):
         bucket = self._bucketObject()
         blob = bucket.blob(storage_path)
         return blob.download_to_filename(f'{local_path}')
@@ -37,4 +37,4 @@ class storageAccessObj():
             paths = filePath.rsplit('/', 1)
             ifExist = os.path.exists(paths[0])
             os.makedirs(paths[0]) if ifExist is False else None
-            self.downloadFileStorage(filePath, os.path.join('./',filePath))
+            self.__downloadFileStorage(filePath, os.path.join('./',filePath))
