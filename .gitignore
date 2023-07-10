@@ -134,3 +134,6 @@ gcp_credentials.json
 .json
 .\credentials\gcp_credentials.json
 .\credentials
+
+# types' files
+.csv
