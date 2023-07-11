@@ -23,6 +23,11 @@ It's getting on website (https://sas.anac.gov.br/sas/downloads/view/frmDownload.
 5° Install python3 dependencies and configure a local venv
 
 <br>
+
+![architecture](./images/architecture.png)
+
+
+<br>
 Refinements: Upgrade a local development to a docker container, then upload to a Google Cloud Platform using Cloud Run Service.
 
 <br><br>
