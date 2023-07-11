@@ -10,6 +10,8 @@ Refinements: Include data 2006 to 2020.
 
 It's getting on website (https://sas.anac.gov.br/sas/downloads/view/frmDownload.aspx?tema=14), that uset to csv format.
 
+![ana_portal](./images/anac_portal.png)
+
 # Infrastructure
 
 <br>
@@ -29,9 +31,22 @@ Refinements: Upgrade a local development to a docker container, then upload to a
 
 We're using cloud storage like a datalake, a object storage service. Extracting initial data on ANAC to datalake aren't automated. We are going to update the extract process on a second version.
 
+![dtalake_cloud_storage](./images/datalake_cloud_storage.png)
+
 <br>
 
 # Transform - Python 
+
+First, it's downloaded path structure of bucket according with storage and parameters of subfolders, that include from, report and year.
+
+![datalake_folders](./images/datalake_folders.png)
+
+Then, replicate path:
+
+![path_local](./images/path_local.png)
+
+Second, reading data in a local path according with folders and transform to a dataset.
+
 
 <br>
 
