@@ -20,7 +20,7 @@ class storageAccessObj():
         # Getting object called bucket
         return self.storage_client.get_bucket(self.bucket)
 
-    def bucketListObject(self, fromDatabase:str, filename:str, formatFile:str, yearPath:str):
+    def bucketListObject(self, fromDatabase:str, filename:str, yearPath:str, formatFile:str):
         # Getting blobs using some filters like parameters
         list_blobs = self._bucketObject()
         return [blob.name for blob in list_blobs.list_blobs() if fromDatabase.lower() in blob.name 
@@ -32,7 +32,7 @@ class storageAccessObj():
         blob = bucket.blob(storage_path)
         return blob.download_to_filename(f'{local_path}')
 
-    def downloadListFiles(self, fromDatabase:str, filename:str, formatFile:str, yearPath:str):
+    def downloadListFiles(self, fromDatabase:str, filename:str, yearPath:str, formatFile:str):
         filesDownloadList = self.bucketListObject(fromDatabase, filename, formatFile, yearPath)
         for filePath in filesDownloadList:
             paths = filePath.rsplit('/', 1)
