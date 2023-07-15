@@ -46,11 +46,11 @@ First, it's downloaded path structure of bucket according with storage and param
 
 ![datalake_folders](./images/datalake_folders.png)
 
-Then, replicate path:
+Then, replicate path locally:
 
 ![path_local](./images/path_local.png)
 
-Second, reading data in a local path according with folders and transform to a dataset.
+Second, reading data in a local path according with folders and transform to a dataset. So, excluding all temporary folders that were created in process.
 
 
 <br>
@@ -59,3 +59,4 @@ Second, reading data in a local path according with folders and transform to a d
 
 The last one step, saving processed data after all cleaning.
 
+Using a constant SCHEMA with all columns of table_id and there definitions (type and tech's columns) and insert like a parameters on bigquery class object. Then, post a request in a google bigquery API for checking if table_i exist or not. If table doesn't exist, it will be create. So, insert a data on a table id.  
