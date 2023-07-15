@@ -34,10 +34,12 @@ class storageAccessObj():
 
     def downloadListFiles(self, fromDatabase:str, filename:str, yearPath:str, formatFile:str):
         filesDownloadList = self.bucketListObject(fromDatabase, filename, yearPath, formatFile)
+        print('\n\n')
         for filePath in filesDownloadList:
             print(filePath)
             paths = filePath.rsplit('/', 1)
             ifExist = os.path.exists(paths[0])
             os.makedirs(paths[0]) if ifExist is False else None
             self.__downloadFileStorage(filePath, os.path.join('./',filePath))
+        print('\n\n')
         return os.path.join('./',filePath[:filePath.rfind('/')])

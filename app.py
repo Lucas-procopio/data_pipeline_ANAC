@@ -18,5 +18,4 @@ if __name__ == '__main__':
     dataset = localtranforming.createDataset()
     print(dataset)
     # Dropping unusable data
-    print(localpath)
-    #shutil.rmtree(localpath[:localpath.rfind('/')])
+    shutil.rmtree(localpath[:localpath.find('/', 2)])
