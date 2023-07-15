@@ -1,5 +1,6 @@
 from google.cloud import bigquery
 import os
+from time import sleep
 
 CREDENTIALS_PATH = './credentials/gcp_credentials.json'
 
@@ -18,3 +19,24 @@ class bigqueryAccessObj():
         table = bigquery.Table(table_id, schema=schema)
         table = self.bigquery_client.create_table(table)
         print(f'Created table {table.project}.{table.dataset_id}.{table.table_id}')
+
+    def __loaddataontable(self):
+        pass
+
+    def updatetable(self, table_id, schema):
+        try:
+            print(f'Starting loading data at {table_id}.')
+            self.__loaddataontable()
+            print(f'Data was loaded successfully at {table_id}.')
+        except:
+            try:
+                print(f"Table {table_id} didn't exist. It'll create first.")
+                print(f'Starting creating {table_id}.')
+                self._creatingtable(table_id, schema)
+                print(f'Table {table_id} was created.')
+                sleep(5)
+                print(f'Starting loading data at {table_id} again.')
+                self.__loaddataontable()
+                print(f'Data was loaded successfully at {table_id}.')
+            except:
+                print('This something wrong with parameters passed.')
