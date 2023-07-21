@@ -4,17 +4,16 @@ from etlRaw import localTransform
 import shutil
 from google.cloud import bigquery
 
-SCHEMA = [bigquery.SchemaField('ano', bigquery.enums.SqlTypeNames.STRING), 
-            bigquery.SchemaField('mes', bigquery.enums.SqlTypeNames.STRING),
+SCHEMA = [bigquery.SchemaField('ano', bigquery.enums.SqlTypeNames.INT64), 
+            bigquery.SchemaField('mes', bigquery.enums.SqlTypeNames.INT64),
             bigquery.SchemaField('empresa', bigquery.enums.SqlTypeNames.STRING),
             bigquery.SchemaField('origem', bigquery.enums.SqlTypeNames.STRING),
             bigquery.SchemaField('destino', bigquery.enums.SqlTypeNames.STRING),
-            bigquery.SchemaField('tarifa', bigquery.enums.SqlTypeNames.STRING),
-            bigquery.SchemaField('assentos', bigquery.enums.SqlTypeNames.STRING)
+            bigquery.SchemaField('tarifa', bigquery.enums.SqlTypeNames.FLOAT),
+            bigquery.SchemaField('assentos', bigquery.enums.SqlTypeNames.INT64)
             ]
 
-
-table_id = ''
+table_id = 'prime-prism-347811.datawarehousing.anac'
 
 if __name__ == '__main__':
     extractingDatalake = storageAccessObj()
@@ -36,6 +35,6 @@ if __name__ == '__main__':
 
     # Accessing DatawaHouse
     conectingDatawarehouse = bigqueryAccessObj()
-    dataset.to_excel('dataset.xlsx')
+
     # Updating dataset on datawareHouse
-    #conectingDatawarehouse.updatetable(dataset, table_id, SCHEMA)
+    conectingDatawarehouse.updatetable(dataset, table_id, SCHEMA)
