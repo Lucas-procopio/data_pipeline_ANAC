@@ -2,8 +2,19 @@ from access_to_datalake import storageAccessObj
 from access_to_datawarehouse import bigqueryAccessObj
 from etlRaw import localTransform
 import shutil
+from google.cloud import bigquery
 
-SCHEMA = []
+SCHEMA = [bigquery.SchemaField('ano', bigquery.enums.SqlTypeNames.STRING), 
+            bigquery.SchemaField('mes', bigquery.enums.SqlTypeNames.STRING),
+            bigquery.SchemaField('empresa', bigquery.enums.SqlTypeNames.STRING),
+            bigquery.SchemaField('origem', bigquery.enums.SqlTypeNames.STRING),
+            bigquery.SchemaField('destino', bigquery.enums.SqlTypeNames.STRING),
+            bigquery.SchemaField('tarifa', bigquery.enums.SqlTypeNames.STRING),
+            bigquery.SchemaField('assentos', bigquery.enums.SqlTypeNames.STRING)
+            ]
+
+
+table_id = ''
 
 if __name__ == '__main__':
     extractingDatalake = storageAccessObj()
@@ -25,6 +36,6 @@ if __name__ == '__main__':
 
     # Accessing DatawaHouse
     conectingDatawarehouse = bigqueryAccessObj()
-    
+    dataset.to_excel('dataset.xlsx')
     # Updating dataset on datawareHouse
-    conectingDatawarehouse.updatetable('table_id', SCHEMA)
+    #conectingDatawarehouse.updatetable(dataset, table_id, SCHEMA)

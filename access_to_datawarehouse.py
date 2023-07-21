@@ -25,6 +25,9 @@ class bigqueryAccessObj():
         job = self.bigquery_client.load_table_from_dataframe(dataframe, table_id, job_config) # making api request
         job.result() # getting job results
 
+        table = self.bigquery_client.get_table(table_id)
+        print(f"Loaded {table.num_rows} rows and {len(table.schema)} to {table_id}")
+
     def updatetable(self, dataframe, table_id, schema):
         try:
             print(f'Starting loading data at {table_id}.')
