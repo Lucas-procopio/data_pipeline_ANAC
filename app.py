@@ -1,6 +1,9 @@
 from access_to_datalake import storageAccessObj
+from access_to_datawarehouse import bigqueryAccessObj
 from etlRaw import localTransform
 import shutil
+
+SCHEMA = []
 
 if __name__ == '__main__':
     extractingDatalake = storageAccessObj()
@@ -19,3 +22,9 @@ if __name__ == '__main__':
     print(dataset)
     # Dropping unusable data
     shutil.rmtree(localpath[:localpath.find('/', 2)])
+
+    # Accessing DatawaHouse
+    conectingDatawarehouse = bigqueryAccessObj()
+    
+    # Updating dataset on datawareHouse
+    conectingDatawarehouse.updatetable('table_id', SCHEMA)
