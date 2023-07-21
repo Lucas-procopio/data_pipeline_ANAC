@@ -2,17 +2,15 @@ from google.cloud import bigquery
 import os
 from time import sleep
 
-CREDENTIALS_PATH = './credentials/gcp_credentials.json'
-
 class bigqueryAccessObj():
     ''' Creating a client bigquery instance.'''
 
     @staticmethod
-    def startingClient(path):
+    def _startingClient(path):
         os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = path
         return bigquery.Client()
 
-    def __init__(self, bigquery_client=startingClient(CREDENTIALS_PATH)):
+    def __init__(self, bigquery_client):
         self.bigquery_client = bigquery_client
 
     def _creatingtable(self, table_id, schema):

@@ -1,9 +1,6 @@
 from google.cloud import storage
 import os
 
-CREDENTIALS_PATH = './credentials/gcp_credentials.json'
-DATALAKE = 'datalake_f'
-
 class storageAccessObj():
     ''' It's was created for instance a client storage, defining a bucket and get list of blobs. Then, filter blobs and files'''
 
@@ -12,7 +9,7 @@ class storageAccessObj():
         os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = path #
         return storage.Client()
 
-    def __init__(self, bucket=DATALAKE, storage_client=_startingClient(CREDENTIALS_PATH)):
+    def __init__(self, bucket, storage_client):
         self.bucket = bucket
         self.storage_client = storage_client
 
