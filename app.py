@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from access_to_datalake import storageAccessObj
 from access_to_datawarehouse import bigqueryAccessObj
 from etlRaw import localTransform
@@ -30,16 +31,15 @@ def orchestration(table_id, datalake, credentials_path, schema):
     # Updating dataset on datawareHouse
     conectingDatawarehouse.updatetable(dataset, table_id, schema)
 
-
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         prog='pipeline_anac',
         description='This a pipeline defition that made a api request at google storage (datalake). Then, doing ETL of data. Finally, insert a data after ETL on a table in bigquery (datawarehouse)'
     )
 
-    parser.add_argument('credentials_path', type=str, help='path with credentals to access gcp', required=True)
-    parser.add_argument('datalake', type=str, help='datalakes name in a bucket', required=True)
-    parser.add_argument('table_id', type=str, help='table_ids name at bigquery', required=True)
+    parser.add_argument('credentials_path', type=str, help='path with credentals to access gcp')
+    parser.add_argument('datalake', type=str, help='datalakes name in a bucket')
+    parser.add_argument('table_id', type=str, help='table_ids name at bigquery')
     args = parser.parse_args()
 
     SCHEMA = [bigquery.SchemaField('ano', bigquery.enums.SqlTypeNames.INT64), 
