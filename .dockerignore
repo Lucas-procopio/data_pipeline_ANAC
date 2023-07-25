@@ -1,0 +1,6 @@
+#FILES
+README.md
+
+#PATHS
+venv/*
+images/*
