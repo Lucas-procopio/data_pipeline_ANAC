@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 from access_to_datalake import storageAccessObj
 from access_to_datawarehouse import bigqueryAccessObj
 from etlRaw import localTransform

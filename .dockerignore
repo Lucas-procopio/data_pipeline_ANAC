@@ -1,5 +1,6 @@
 #FILES
 README.md
+.sh
 
 #PATHS
 venv/*
