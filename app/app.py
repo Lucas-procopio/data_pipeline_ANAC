@@ -4,7 +4,6 @@ from etlRaw import localTransform
 import shutil
 from google.cloud import bigquery
 import argparse
-import os
 
 def orchestration(table_id, datalake, credentials_path, schema):
     # Acessing datalake
