@@ -1,6 +1,7 @@
 #FILES
 README.md
 .sh
+.gitignore
 
 #PATHS
 venv/*
