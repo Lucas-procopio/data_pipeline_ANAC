@@ -1,9 +1,8 @@
-# Goal
+# Goal 
 
 Application used to data transform a ANAC databases called 'Tarifas Transporte Aéreo Passageiros Domésticos' by year 2002 to 2005. Starting with a manual extract data on DataSAS (ANAC's site) to saving a datalake. Then process all data in a datalake to a datawarehouse. 
 
 ## Data pipeline
-
 
 ### Initial Data (Without processing)
 
@@ -55,15 +54,21 @@ Using a constant SCHEMA with all columns of table_id and there definitions (type
 <br>
 
     Language: Python
+        version: 3
     Structure: OPP
-    APIs: google-cloud-bigquery; google-cloud-storage
 
-## Need it:
+    APIs: 
+        Datalake: google-cloud-storage
+            version: 2.10.0
+        DataWarehouse: google-cloud-bigquery
+            version: 3.11.3 
 
-    - Creating a Google Cloud Account.
-    - Making a Service Acount and save it.
+## Configure files
 
-## Service Account Permissions
+### Service Account 
+
+    1° Creating a Google Cloud Account.
+    2° Making a Service Acount and save it.
 
     - BigQuery:
         - BigQuery Administrator
@@ -76,7 +81,7 @@ Using a constant SCHEMA with all columns of table_id and there definitions (type
         - Reading storage Object
         - Transfer user of Storage 
 
-## Configure files
+### DevOps' Files
 
     - Google Credential's json
     - Dockerfile
