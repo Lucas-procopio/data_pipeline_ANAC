@@ -1,4 +1,22 @@
-# Data pipeline [construction]
+## Technology Used:
+<br>
+
+    Language: Python
+    Structure: OPP
+    APIs: google-cloud-bigquery; google-cloud-storage
+
+## Configure files
+
+    - Google Credential's json
+    - Dockerfile
+    - .dockerignore
+    - requeriments.txt
+
+
+<br>
+
+
+## Data pipeline
 
 Application used to data transform a ANAC databases called 'Tarifas Transporte Aéreo Passageiros Domésticos' by year 2002 to 2005. Starting with a manual extract data on DataSAS (ANAC's site) to saving a datalake. Then process all data in a datalake to a datawarehouse.
 
@@ -6,13 +24,15 @@ Application used to data transform a ANAC databases called 'Tarifas Transporte A
 Refinements: Include data 2006 to 2020. 
 <br><br>
 
-# Initial Data (Without processing)
+## Initial Data (Without processing)
 
-It's getting on website (https://sas.anac.gov.br/sas/downloads/view/frmDownload.aspx?tema=14), that uset to csv format.
+It's getting on website, that uset to csv format.
+
+<a href="https://sas.anac.gov.br/sas/downloads/view/frmDownload.aspx?tema=14">ANAC's Website</a>
 
 ![ana_portal](./images/anac_portal.png)
 
-# Infrastructure
+## Infrastructure
 
 <br>
 
@@ -32,7 +52,7 @@ Refinements: Upgrade a local development to a docker container, then upload to a
 
 <br><br>
 
-# Datalake - Cloud Storage
+## Datalake - Cloud Storage
 
 We're using cloud storage like a datalake, a object storage service. Extracting initial data on ANAC to datalake aren't automated. We are going to update the extract process on a second version.
 
@@ -40,7 +60,7 @@ We're using cloud storage like a datalake, a object storage service. Extracting 
 
 <br>
 
-# Transform - Python 
+## Transform - Python 
 
 First, it's downloaded path structure of bucket according with storage and parameters of subfolders, that include from, report and year.
 
@@ -55,8 +75,8 @@ Second, reading data in a local path according with folders and transform to a d
 
 <br>
 
-# Datawarehouse - Bigquery
+## Datawarehouse - Bigquery
 
 The last one step, saving processed data after all cleaning.
 
-Using a constant SCHEMA with all columns of table_id and there definitions (type and tech's columns) and insert like a parameters on bigquery class object. Then, post a request in a google bigquery API for checking if table_i exist or not. If table doesn't exist, it will be create. So, insert a data on a table id.  
+Using a constant SCHEMA with all columns of table_id and there definitions (type and tech's columns) and insert like a parameters on bigquery class object. Then, post a request in a google bigquery API for checking if table_i exist or not. If table doesn't exist, it will be create. So, insert a data on a table id.
