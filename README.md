@@ -5,16 +5,25 @@
     Structure: OPP
     APIs: google-cloud-bigquery; google-cloud-storage
 
-## Configure files
+## Necessery
 
-    - Google Credential's json
-    - Dockerfile
-    - .dockerignore
-    - requeriments.txt
+    - Creating a Google Cloud Account.
+    - Making a Service Acount and save it.
 
+## Service Account Permissions
+
+    - BigQuery:
+        - BigQuery Administrator
+        - Data editor of BigQuery
+        - Reading metadata of BQ
+
+    - Cloud Storage:
+        - Storage Administrator
+        - Maker of Storage Object
+        - Reading storage Object
+        - Transfer user of Storage 
 
 <br>
-
 
 ## Data pipeline
 
@@ -50,7 +59,7 @@ It's getting on website, that uset to csv format.
 <br>
 Refinements: Upgrade a local development to a docker container, then upload to a Google Cloud Platform using Cloud Run Service.
 
-<br><br>
+<br>
 
 ## Datalake - Cloud Storage
 
@@ -80,3 +89,11 @@ Second, reading data in a local path according with folders and transform to a d
 The last one step, saving processed data after all cleaning.
 
 Using a constant SCHEMA with all columns of table_id and there definitions (type and tech's columns) and insert like a parameters on bigquery class object. Then, post a request in a google bigquery API for checking if table_i exist or not. If table doesn't exist, it will be create. So, insert a data on a table id.
+<br><br>
+
+## Configure files
+
+    - Google Credential's json
+    - Dockerfile
+    - .dockerignore
+    - requeriments.txt
